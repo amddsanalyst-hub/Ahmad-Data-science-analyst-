@@ -1,0 +1,2000 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad | Data Science & Business Analyst | Power BI & SQL Specialist</title>
+  <meta name="description" content="Personal portfolio of Ahmad Muhammad Dawood - Data Science & Business Analyst. Transforming raw complex data into actionable business dashboards, automated Excel workflows, and optimized SQL pipelines.">
+  <meta name="theme-color" content="#070a12">
+
+  <!-- Tailwind CSS CDN with Custom Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#070a12',
+              card: '#0d1322',
+              cardHover: '#131b30',
+              cyan: '#00f2fe',
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              amber: '#f59e0b',
+              emerald: '#10b981'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#070a12] text-slate-100 antialiased selection:bg-sky-500 selection:text-black min-h-screen flex flex-col justify-between">
+  <!-- 1. STICKY NAVIGATION BAR -->
+  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-cyan-400 p-[1px] shadow-lg shadow-sky-500/20 group-hover:shadow-sky-500/40 transition-all">
+          <div class="w-full h-full bg-[#070a12] rounded-[11px] flex items-center justify-center font-mono font-bold text-sky-400 text-lg">
+            AD
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5">
+            Ahmad Dawood
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          </span>
+          <span class="text-[11px] font-mono text-sky-400/80 uppercase tracking-wider">Data & Business Analyst</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800/80 backdrop-blur-md text-sm text-slate-300">
+        <a href="#about" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">About</a>
+        <a href="#dashboards" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Dashboards</a>
+        <a href="#services" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Services</a>
+        <a href="#projects" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Case Studies</a>
+        <a href="#skills" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Skills</a>
+        <a href="#certifications" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Certifications</a>
+        <a href="#reviews" class="nav-link px-3 py-1 rounded-full hover:text-sky-400 hover:bg-slate-800/60 transition-colors">Reviews</a>
+      </nav>
+
+      <!-- Right Action & Availability -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 text-xs font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Available for Projects
+        </div>
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-1.5">
+          <span>Hire Me</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-sky-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-3 p-4 rounded-2xl bg-slate-900/95 border border-slate-800 backdrop-blur-xl shadow-2xl flex flex-col gap-2.5 text-sm">
+      <a href="#about" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">About Ahmad</a>
+      <a href="#dashboards" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Interactive Dashboards</a>
+      <a href="#services" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Core Services</a>
+      <a href="#projects" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Case Studies & Work</a>
+      <a href="#skills" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Technical Skills</a>
+      <a href="#certifications" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Certifications & Education</a>
+      <a href="#reviews" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-800 text-slate-200">Client Reviews</a>
+      <a href="#contact" class="mobile-nav-link p-2.5 rounded-xl bg-sky-500 text-slate-950 font-bold text-center mt-2">Get in Touch / Hire</a>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section id="hero" class="relative min-h-[92vh] pt-28 pb-16 px-4 sm:px-8 flex items-center justify-center overflow-hidden bg-grid-pattern">
+    <div class="absolute inset-0 z-0 pointer-events-auto">
+      <canvas id="hero-canvas" class="w-full h-full"></canvas>
+    </div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-sky-500/30 text-sky-400 text-xs font-mono tracking-wide shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span>MICROSOFT CERTIFIED POWER BI & EXCEL SPECIALIST</span>
+        </div>
+
+        <div class="space-y-2">
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Ahmad <span class="gradient-text-cyan">Muhammad Dawood</span>
+          </h1>
+          <h2 class="text-xl sm:text-2xl font-semibold text-slate-300 flex items-center gap-2 flex-wrap">
+            <span>Data Science & Business Analyst</span>
+            <span class="text-sky-400 font-mono text-sm px-2.5 py-0.5 rounded bg-sky-950/60 border border-sky-500/20">Power BI • SQL • Python</span>
+          </h2>
+        </div>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <strong class="text-white">Transforming Raw Complex Data into Actionable Business Dashboards & Insights.</strong>
+          I engineer automated data pipelines, audit complex financial/payroll records with <span class="text-cyan-300 font-semibold underline decoration-sky-500/40">100% accuracy</span>, and craft visual narratives that eliminate human error and drive smart executive decisions.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#dashboards" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-600 hover:from-sky-400 hover:to-cyan-400 text-slate-950 font-extrabold text-sm tracking-wide shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-slate-950"></i>
+            <span>Explore Interactive Dashboards</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-950"></i>
+          </a>
+
+          <a href="#contact" class="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-sky-500/30 text-sky-400 hover:text-white font-semibold text-sm tracking-wide hover:border-sky-400/60 transition-all flex items-center gap-2">
+            <i data-lucide="mail-check" class="w-4 h-4"></i>
+            <span>Hire Me / Get Quote</span>
+          </a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-800/80 w-full text-xs font-mono text-slate-400">
+          <a href="mailto:amddsanalyst@gmail.com" class="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
+            <span>amddsanalyst@gmail.com</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="https://www.linkedin.com/in/ahmad-dsanalyst" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+            <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+            <span>linkedin.com/in/ahmad-dsanalyst</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <span class="flex items-center gap-1.5 text-slate-400">
+            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+            <span>Multan, Pakistan</span>
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Right Column Portrait -->
+      <div class="lg:col-span-5 flex justify-center relative">
+        <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+
+        <div class="relative w-full max-w-md p-3 sm:p-4 rounded-3xl glass-panel border border-sky-500/30 shadow-2xl">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900">
+            <img src="assets/images/ahmad-portrait.jpg" alt="Ahmad Muhammad Dawood - Data Science & Business Analyst" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-transparent opacity-80"></div>
+
+            <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-slate-800 flex items-center justify-between">
+              <div>
+                <h3 class="text-sm font-bold text-white">Ahmad M. Dawood</h3>
+                <p class="text-[11px] text-sky-400 font-mono">MOS Excel Expert • PL-300</p>
+              </div>
+              <div class="flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-bold font-mono">
+                <span>★ 5.0 Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -top-4 -left-4 sm:-left-6 p-3 rounded-xl bg-slate-900/90 border border-sky-500/40 backdrop-blur-md shadow-xl flex items-center gap-2.5 animate-float">
+            <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">100% Accuracy</div>
+              <div class="text-[10px] text-slate-400">Zero Error Audit</div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-4 -right-4 sm:-right-6 p-3 rounded-xl bg-slate-900/90 border border-cyan-500/40 backdrop-blur-md shadow-xl flex items-center gap-2.5 animate-float" style="animation-delay: 2s;">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+              <i data-lucide="database" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">150+ Weekly Invoices</div>
+              <div class="text-[10px] text-slate-400">Automated Pipeline</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- 3. ANIMATED STATISTICS BANNER -->
+  <section id="stats-banner" class="relative z-20 py-10 px-4 sm:px-8 border-y border-slate-800/80 bg-slate-950/70 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="p-4 rounded-2xl glass-card-interactive">
+        <div class="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono stat-counter" data-target="150" data-suffix="+">0</div>
+        <p class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Weekly Invoices Processed</p>
+        <p class="text-[11px] text-slate-400">High-volume automated audit</p>
+      </div>
+      <div class="p-4 rounded-2xl glass-card-interactive">
+        <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono stat-counter" data-target="100" data-suffix="%">0</div>
+        <p class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Data & Audit Accuracy</p>
+        <p class="text-[11px] text-slate-400">Flawless integrity under pressure</p>
+      </div>
+      <div class="p-4 rounded-2xl glass-card-interactive">
+        <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono stat-counter" data-target="20" data-suffix="+">0</div>
+        <p class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Industry Certifications</p>
+        <p class="text-[11px] text-slate-400">Microsoft, AWS, Google & Harvard</p>
+      </div>
+      <div class="p-4 rounded-2xl glass-card-interactive">
+        <div class="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono stat-counter" data-target="500" data-suffix="+">0</div>
+        <p class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Hours Saved for Clients</p>
+        <p class="text-[11px] text-slate-400">Through ETL & VBA Automation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ABOUT & PROFESSIONAL SUMMARY -->
+  <section id="about" class="py-24 px-4 sm:px-8 relative bg-radial-gradient">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-sky-400 text-xs font-mono">
+          <span>// EXECUTIVE SUMMARY</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Translating Row-and-Column Noise into <span class="gradient-text-cyan">High-Impact Strategy</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Passionate and results-driven Data Analyst dedicated to building bulletproof data models and intuitive dashboards that empower C-suite leaders to make faster, smarter moves.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <div class="relative rounded-3xl overflow-hidden glass-panel border border-sky-500/30 shadow-2xl p-5 sm:p-6 space-y-5 bg-gradient-to-b from-slate-900/90 via-slate-950/95 to-slate-900/90">
+            
+            <!-- Terminal Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3.5">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                <span class="ml-2 font-mono text-[11px] text-slate-400">ahmad_analyst_core.env</span>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">STATUS: OPTIMAL</span>
+            </div>
+
+            <!-- Terminal Code / Highlights -->
+            <div class="font-mono text-xs text-slate-300 space-y-3 bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
+              <div class="text-sky-400 font-semibold flex items-center justify-between">
+                <span>$ query --analyst "Ahmad Muhammad Dawood"</span>
+                <span class="text-slate-500 text-[10px]">v2.6</span>
+              </div>
+              <div class="space-y-1.5 text-[11px] text-slate-300">
+                <p><span class="text-amber-400">ROLE:</span> Data Science & Business Analyst</p>
+                <p><span class="text-amber-400">SPECIALIZATION:</span> Power BI, SQL & Advanced Excel</p>
+                <p><span class="text-amber-400">AUDIT_ACCURACY:</span> <span class="text-emerald-400 font-bold">100.00%</span> (Zero Reconciliation Errors)</p>
+                <p><span class="text-amber-400">WEEKLY_VOLUME:</span> <span class="text-cyan-300">150+ Invoices & Attendance Records</span></p>
+                <p><span class="text-amber-400">CREDENTIALS:</span> <span class="text-sky-300">PL-300, DP-600, MOS Excel Expert</span></p>
+              </div>
+            </div>
+
+            <!-- Experience & Platforms -->
+            <div class="space-y-2.5 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs font-mono">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Freelance Experience:</span>
+                <span class="text-emerald-400 font-bold">Sep 2025 – Present</span>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                <span class="text-slate-400">Active Platforms:</span>
+                <span class="text-sky-400 font-semibold">Fiverr • Upwork • Freelancer</span>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                <span class="text-slate-400">Location Base:</span>
+                <span class="text-slate-200">Multan, Punjab, Pakistan</span>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                <span class="text-slate-400">Response SLA:</span>
+                <span class="text-amber-400 font-semibold">&lt; 4 Hours Guaranteed</span>
+              </div>
+            </div>
+
+            <!-- Verified Badges Row -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <div class="p-3 rounded-xl bg-sky-950/40 border border-sky-500/20 text-center">
+                <div class="text-lg font-bold font-mono text-sky-400">500+ Hrs</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">Client Time Saved</div>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-center">
+                <div class="text-lg font-bold font-mono text-emerald-400">5.0 ★★★★★</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">Client Satisfaction</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <div class="p-6 rounded-2xl glass-panel border border-sky-500/20 space-y-4">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-sky-400"></i>
+              <span>"Data is useless if it doesn't drive smart decisions."</span>
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              I specialize in turning complex, messy raw datasets into clean, actionable business intelligence. From bulletproof Excel modeling and automated Power Query workflows to advanced SQL queries, Power BI dashboards, and Python analytics, I build systems that eliminate human error and bring immediate clarity to performance metrics.
+            </p>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Whether it’s scrubbing thousands of corrupted records, unearthing hidden margin trends, or building end-to-end analytical tools, I deliver precision, efficiency, and clarity.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl glass-card-interactive border border-slate-800">
+              <div class="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold mb-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Zero-Error Precision</h4>
+              <p class="text-xs text-slate-400 mt-1">Rigorous data quality audits, reconciliation checks, and outlier detection.</p>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card-interactive border border-slate-800">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold mb-2">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Automated ETL Workflows</h4>
+              <p class="text-xs text-slate-400 mt-1">Power Query M-code & Python routines to eliminate repetitive data entry.</p>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card-interactive border border-slate-800">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold mb-2">
+                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Executive Storytelling</h4>
+              <p class="text-xs text-slate-400 mt-1">Dynamic KPI scorecards and clean visual narratives tailored for C-suite leaders.</p>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card-interactive border border-slate-800">
+              <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold mb-2">
+                <i data-lucide="database" class="w-4 h-4"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">High-Speed SQL DBs</h4>
+              <p class="text-xs text-slate-400 mt-1">Window functions, indexed materialized views, and subquery optimization.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. INTERACTIVE DASHBOARD HUB -->
+  <section id="dashboards" class="py-24 px-4 sm:px-8 relative bg-grid-pattern border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
+            <span>// LIVE ANALYTICS HUB</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Interactive <span class="gradient-text-cyan">Dashboard Showcase</span>
+          </h2>
+          <p class="text-slate-400 text-sm max-w-xl">
+            Toggle between live embedded dashboard engines. Test live slicers, sensitivity sliders, and launch full-screen modal previews.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <button onclick="switchDashboardTab('powerbi')" id="tab-powerbi" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+            <span>📊 Power BI Executive</span>
+          </button>
+          <button onclick="switchDashboardTab('excel')" id="tab-excel" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+            <span>📗 Excel Modeling</span>
+          </button>
+          <button onclick="switchDashboardTab('sql')" id="tab-sql" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+            <span>🗄️ SQL Benchmarks</span>
+          </button>
+          <button onclick="switchDashboardTab('python')" id="tab-python" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+            <span>🐍 Python & RFM</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Content 1: Power BI -->
+      <div id="content-powerbi" class="dashboard-tab-content space-y-6">
+        <div class="p-4 sm:p-6 rounded-2xl glass-panel border border-sky-500/30 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">Region Slicers:</span>
+              <div class="flex flex-wrap gap-1.5">
+                <button class="pbi-region-btn slicer-pill active px-3 py-1 rounded-lg text-xs border border-slate-700 bg-slate-800 text-slate-200" data-region="global">Global (All)</button>
+                <button class="pbi-region-btn slicer-pill px-3 py-1 rounded-lg text-xs border border-slate-700 bg-slate-800 text-slate-200" data-region="na">North America</button>
+                <button class="pbi-region-btn slicer-pill px-3 py-1 rounded-lg text-xs border border-slate-700 bg-slate-800 text-slate-200" data-region="emea">EMEA</button>
+                <button class="pbi-region-btn slicer-pill px-3 py-1 rounded-lg text-xs border border-slate-700 bg-slate-800 text-slate-200" data-region="apac">Asia-Pacific</button>
+              </div>
+            </div>
+
+            <button data-dashboard="powerbi" class="btn-launch-modal px-4 py-2 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/40 text-sky-400 text-xs font-bold flex items-center gap-1.5 transition-all">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>Launch Full Dashboard Modal</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80">
+              <span class="text-xs text-slate-400 font-mono">Total Net Revenue</span>
+              <div id="pbi-kpi-rev" class="text-2xl font-extrabold text-white font-mono mt-1">$1.55M</div>
+              <span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1 mt-1">▲ 14.8% vs Target</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80">
+              <span class="text-xs text-slate-400 font-mono">YoY Growth (DAX)</span>
+              <div id="pbi-kpi-growth" class="text-2xl font-extrabold text-sky-400 font-mono mt-1">+28.4% YoY</div>
+              <span class="text-[11px] text-sky-400/80 font-semibold mt-1">Time-Intelligence YTD</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80">
+              <span class="text-xs text-slate-400 font-mono">Gross Margin %</span>
+              <div id="pbi-kpi-margin" class="text-2xl font-extrabold text-amber-400 font-mono mt-1">34.8%</div>
+              <span class="text-[11px] text-amber-400/80 font-semibold mt-1">+2.4% vs Previous FY</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80">
+              <span class="text-xs text-slate-400 font-mono">Avg Order Value (AOV)</span>
+              <div id="pbi-kpi-aov" class="text-2xl font-extrabold text-cyan-400 font-mono mt-1">$485</div>
+              <span class="text-[11px] text-cyan-400/80 font-semibold mt-1">Direct B2B Accounts</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
+            <div class="lg:col-span-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 min-h-[320px]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-slate-200">Revenue & Profit Trajectory vs Target Plan</span>
+                <span class="text-[11px] font-mono text-sky-400">Live Chart.js Engine</span>
+              </div>
+              <div class="h-64 sm:h-72 w-full">
+                <canvas id="pbi-trend-chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800 min-h-[320px]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-slate-200">Regional Revenue Split</span>
+                <span class="text-[11px] font-mono text-amber-400">Star Schema</span>
+              </div>
+              <div class="h-64 sm:h-72 w-full flex items-center justify-center">
+                <canvas id="pbi-donut-chart"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Excel -->
+      <div id="content-excel" class="dashboard-tab-content hidden space-y-6">
+        <div class="p-4 sm:p-6 rounded-2xl glass-panel border border-emerald-500/30 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div class="flex items-center gap-4 flex-wrap">
+              <span class="text-xs font-mono text-slate-400">Sensitivity Multiplier:</span>
+              <div class="flex items-center gap-3">
+                <input type="range" id="excel-variance-slider" min="-25" max="25" value="0" class="w-36 sm:w-48">
+                <span id="excel-slider-val" class="font-mono text-xs font-bold text-emerald-400 bg-emerald-950/60 px-2 py-1 rounded border border-emerald-500/20">0%</span>
+              </div>
+            </div>
+
+            <button data-dashboard="excel" class="btn-launch-modal px-4 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-bold flex items-center gap-1.5 transition-all">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>Launch Full Financial Model</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-xs text-slate-400 font-mono">Approved Budget Base</span>
+              <div id="excel-kpi-budget" class="text-2xl font-extrabold text-white font-mono mt-1">$1,105K</div>
+              <span class="text-[11px] text-slate-400 font-semibold mt-1">P&L FY Consolidated</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-xs text-slate-400 font-mono">Dynamic Actual Spend</span>
+              <div id="excel-kpi-actual" class="text-2xl font-extrabold text-cyan-400 font-mono mt-1">$1,075K</div>
+              <span class="text-[11px] text-cyan-400 font-semibold mt-1">Adjusted via Dynamic Array Formulas</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-xs text-slate-400 font-mono">Net Operating Variance</span>
+              <div id="excel-kpi-variance" class="text-2xl font-extrabold text-emerald-400 font-mono mt-1">+$30.0K (+2.7%)</div>
+              <span class="text-[11px] text-emerald-400 font-semibold mt-1">Under Budget (Favorable)</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 min-h-[300px]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-slate-200">Departmental Budget vs. Actual Variance Analysis</span>
+              <span class="text-xs font-mono text-emerald-400">LAMBDA + XLOOKUP Engine</span>
+            </div>
+            <div class="h-64 sm:h-72 w-full">
+              <canvas id="excel-variance-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: SQL -->
+      <div id="content-sql" class="dashboard-tab-content hidden space-y-6">
+        <div class="p-4 sm:p-6 rounded-2xl glass-panel border border-indigo-500/30 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div class="space-y-1">
+              <h3 class="text-sm font-bold text-white">PostgreSQL & SQL Server Query Execution Benchmarks</h3>
+              <p class="text-xs text-slate-400">Comparison of unindexed scan latency vs indexed CTEs & Window Functions.</p>
+            </div>
+
+            <button data-dashboard="sql" class="btn-launch-modal px-4 py-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 text-xs font-bold flex items-center gap-1.5 transition-all">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>Launch Warehouse Architecture</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 min-h-[320px]">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-slate-200">Query Latency Benchmark (Milliseconds - Logarithmic)</span>
+                <span class="text-xs font-mono text-sky-400">Up to 71.2x Latency Reduction</span>
+              </div>
+              <div class="h-64 sm:h-72 w-full">
+                <canvas id="sql-perf-chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-4 rounded-xl bg-slate-900/90 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto">
+              <div class="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
+                <span>Optimized CTE View</span>
+                <span class="text-emerald-400">● 48ms</span>
+              </div>
+              <pre class="text-sky-300 text-[11px] leading-relaxed">
+<span class="text-amber-400">WITH</span> MonthlyCohorts <span class="text-amber-400">AS</span> (
+  <span class="text-amber-400">SELECT</span> 
+    user_id,
+    <span class="text-cyan-300">DATE_TRUNC</span>('month', order_date) <span class="text-amber-400">AS</span> cohort,
+    <span class="text-cyan-300">ROW_NUMBER</span>() <span class="text-amber-400">OVER</span> (
+      <span class="text-amber-400">PARTITION BY</span> user_id 
+      <span class="text-amber-400">ORDER BY</span> order_date <span class="text-amber-400">ASC</span>
+    ) <span class="text-amber-400">AS</span> purchase_rank
+  <span class="text-amber-400">FROM</span> fact_orders
+  <span class="text-amber-400">WHERE</span> status = 'COMPLETED'
+)
+<span class="text-amber-400">SELECT</span> cohort, <span class="text-cyan-300">COUNT</span>(DISTINCT user_id)
+<span class="text-amber-400">FROM</span> MonthlyCohorts
+<span class="text-amber-400">GROUP BY</span> 1;
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 4: Python -->
+      <div id="content-python" class="dashboard-tab-content hidden space-y-6">
+        <div class="p-4 sm:p-6 rounded-2xl glass-panel border border-amber-500/30 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div class="flex items-center gap-4 flex-wrap">
+              <span class="text-xs font-mono text-slate-400">Churn Risk Filter Threshold:</span>
+              <div class="flex items-center gap-3">
+                <input type="range" id="churn-risk-slider" min="10" max="90" value="50" class="w-36 sm:w-48">
+                <span id="churn-slider-val" class="font-mono text-xs font-bold text-amber-400 bg-amber-950/60 px-2 py-1 rounded border border-amber-500/20">50%</span>
+              </div>
+            </div>
+
+            <button data-dashboard="python" class="btn-launch-modal px-4 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs font-bold flex items-center gap-1.5 transition-all">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>Launch Streamlit Model Preview</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 min-h-[320px]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-slate-200">Customer RFM Cluster Distribution</span>
+                <span class="text-xs font-mono text-amber-400">Scikit-Learn K-Means / RFM</span>
+              </div>
+              <div class="h-64 sm:h-72 w-full flex items-center justify-center">
+                <canvas id="python-rfm-chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-4">
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                <span class="text-xs text-slate-400 font-mono">High-Risk Customer Accounts</span>
+                <div id="python-kpi-atrisk" class="text-2xl font-extrabold text-rose-400 font-mono mt-1">1,110</div>
+                <span class="text-[11px] text-rose-400/80 font-semibold mt-1">Flagged for retention campaign</span>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                <span class="text-xs text-slate-400 font-mono">Retained / Safe Base</span>
+                <div id="python-kpi-retained" class="text-2xl font-extrabold text-emerald-400 font-mono mt-1">1,950</div>
+                <span class="text-[11px] text-emerald-400/80 font-semibold mt-1">Champions & Loyalists</span>
+              </div>
+
+              <div class="p-4 rounded-xl bg-sky-950/40 border border-sky-500/20 text-xs text-slate-300">
+                <div class="font-bold text-sky-400 mb-1">Model Telemetry:</div>
+                Random Forest Classifier (Accuracy: 89.4%, ROC-AUC: 0.92). Programmed with Pandas & Seaborn.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- 6. CORE SERVICES PROVIDED -->
+  <section id="services" class="py-24 px-4 sm:px-8 relative bg-radial-gradient">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-sky-400 text-xs font-mono">
+          <span>// VALUE PROPOSITION</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Core <span class="gradient-text-cyan">Services & Capabilities</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          From spreadsheet recovery to production-grade enterprise intelligence, I engineer solutions tailored to your operational bottlenecks.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Service 1 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-400 flex items-center justify-center">
+              <i data-lucide="layout-grid" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Interactive Dashboard Creation</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Custom Power BI & Excel executive dashboards with interactive slicers, drill-through paths, and auto-refresh pipelines.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-sky-400">✓</span> Star/Snowflake Data Modeling</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✓</span> Advanced DAX Time-Intelligence</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✓</span> Row-Level Security (RLS) Setup</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-sky-400 hover:text-sky-300 flex items-center justify-between group">
+            <span>Inquire Dashboard Service</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Data Cleaning & Transformation</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Scrubbing messy datasets, unnesting corrupted rows, deduplication, and automated multi-source workbook consolidation.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> PDF/Text to Structured Excel</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Power Query ETL Pipelines</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Outlier & Anomaly Detection</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center justify-between group">
+            <span>Inquire Data Cleaning</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">SQL DB & Query Optimization</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Writing complex relational queries, restructuring slow joins, designing normalized schemas, and creating materialized views.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✓</span> Multi-Table JOINs, CTEs & Subqueries</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✓</span> Analytical Window Functions</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✓</span> Indexing & Latency Tuning</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center justify-between group">
+            <span>Inquire SQL Consulting</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center">
+              <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Excel Automation & VBA Macros</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Streamlining heavy workbooks, automating repetitive reporting workflows, and creating custom financial templates.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> XLOOKUP, INDEX/MATCH & LAMBDA</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> 1-Click VBA PDF & Email Dispatch</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Automated Invoice & Payroll Models</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center justify-between group">
+            <span>Inquire Excel Automation</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Python Data Science & Scraping</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Programmatic data extraction, exploratory data analysis (EDA), predictive modeling, and automated web scraping.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-cyan-400">✓</span> BeautifulSoup & Selenium Scraping</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-400">✓</span> Pandas & NumPy Large Transformations</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-400">✓</span> REST API Integrations & Webhooks</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center justify-between group">
+            <span>Inquire Python Science</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 text-purple-400 flex items-center justify-center">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Domain-Specific Analytics</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Specialized reporting for HR & Attendance Auditing, E-Commerce SKU tracking, Financial Statements (P&L), and Marketing ROI.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Customer Churn & RFM Segmentation</li>
+              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Budget Variance & P&L Modeling</li>
+              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> HR Shift & Clock-in Audit</li>
+            </ul>
+          </div>
+          <a href="#contact" class="pt-4 border-t border-slate-800/80 text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center justify-between group">
+            <span>Inquire Analytics Strategy</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. PORTFOLIO & CASE STUDIES -->
+  <section id="projects" class="py-24 px-4 sm:px-8 relative bg-grid-pattern border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-sky-400 text-xs font-mono">
+            <span>// PROVEN DELIVERABLES</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Featured <span class="gradient-text-cyan">Case Studies & Projects</span>
+          </h2>
+          <p class="text-slate-400 text-sm max-w-xl">
+            Real client projects demonstrating quantified business impact, precision auditing, and high-performance data architecture.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800">
+          <button class="project-filter-btn filter-btn active px-3.5 py-1.5 rounded-xl text-xs" data-filter="all">All</button>
+          <button class="project-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-filter="powerbi">Power BI</button>
+          <button class="project-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-filter="excel">Excel</button>
+          <button class="project-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-filter="sql">SQL</button>
+          <button class="project-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-filter="python">Python</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Project 1 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="powerbi all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-sky-500/10 border border-sky-500/30 text-sky-400 font-mono text-xs">Power BI • DAX</span>
+              <span class="text-xs text-emerald-400 font-bold flex items-center gap-1">⚡ +28.4% Growth</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">Enterprise Multi-Region Sales & Margin Intelligence</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Designed a centralized Star Schema data model ingesting regional spreadsheets with 35+ custom DAX measures for Time-Intelligence and dynamic variance scorecards.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Star Schema</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Time Intelligence</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">RLS Security</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="pbi-sales" class="btn-case-study text-xs font-bold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="switchDashboardTab('powerbi'); document.getElementById('dashboards').scrollIntoView({behavior: 'smooth'})" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Live Demo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="excel all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs">Excel • VBA • ETL</span>
+              <span class="text-xs text-cyan-400 font-bold flex items-center gap-1">⚡ 100% Accuracy</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">Automated Global Payroll, Attendance & Invoice Audit</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Automated high-volume invoice processing (150+ weekly) and biometric clock-in reconciliations using dynamic array formulas and 1-click VBA PDF generators.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">150+ Invoices/Wk</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">VBA Automation</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Power Query M</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="excel-payroll" class="btn-case-study text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="switchDashboardTab('excel'); document.getElementById('dashboards').scrollIntoView({behavior: 'smooth'})" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Live Demo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="sql all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 font-mono text-xs">PostgreSQL • Window Fns</span>
+              <span class="text-xs text-amber-400 font-bold flex items-center gap-1">⚡ 71x Speedup</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">High-Scale E-Commerce SQL Warehouse & Cohort Analysis</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Optimized 500,000+ transaction ledger queries from 3.4s down to 48ms using B-Tree partitioning, CTEs, and window functions (LEAD, LAG, ROW_NUMBER).
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">PostgreSQL</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">CTEs & Subqueries</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Latency Tuning</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="sql-retention" class="btn-case-study text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="switchDashboardTab('sql'); document.getElementById('dashboards').scrollIntoView({behavior: 'smooth'})" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Live Demo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="python all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-xs">Python • Scikit-Learn</span>
+              <span class="text-xs text-rose-400 font-bold flex items-center gap-1">⚡ 89.4% Accuracy</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">Customer RFM Segmentation & Predictive Churn Pipeline</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Cleaned telemetry logs with Pandas/NumPy, extracted RFM metrics, and trained a Random Forest classifier in Streamlit saving $42K in at-risk subscription revenue.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Pandas & NumPy</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Streamlit UI</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">RFM Analysis</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="python-churn" class="btn-case-study text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="switchDashboardTab('python'); document.getElementById('dashboards').scrollIntoView({behavior: 'smooth'})" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Live Demo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="excel all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs">Excel • Financial Modeling</span>
+              <span class="text-xs text-emerald-400 font-bold flex items-center gap-1">⚡ Zero Discrepancies</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">Automated Financial Statement P&L & Variance Forecasting</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Constructed an executive financial model featuring automated dynamic waterfall charts, budget variance analyses, and real-time sensitivity matrix controls.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">P&L Statements</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Sensitivity Analysis</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">C-Suite Ready</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="excel-pnl" class="btn-case-study text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="switchDashboardTab('excel'); document.getElementById('dashboards').scrollIntoView({behavior: 'smooth'})" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Live Demo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card flex flex-col justify-between p-6 rounded-2xl glass-panel glass-panel-hover" data-categories="python all">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Python • Selenium • BS4</span>
+              <span class="text-xs text-sky-400 font-bold flex items-center gap-1">⚡ 25K SKUs Daily</span>
+            </div>
+            <h3 class="text-lg font-bold text-white leading-snug">Automated Web Price Scraper & Catalog Intelligence</h3>
+            <p class="text-slate-300 text-xs line-clamp-3">
+              Headless scraper harvesting 25,000+ competitor SKUs daily with anti-bot bypass, automated schema validation, and scheduled morning email digests.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Selenium Automation</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">SQLite Database</span>
+              <span class="badge-tech px-2 py-0.5 rounded text-[11px] font-mono text-slate-300">Automated Alerts</span>
+            </div>
+          </div>
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between gap-3 mt-4">
+            <button data-study="python-scraper" class="btn-case-study text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1">
+              <span>Case Study Details</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+            <a href="#contact" class="text-xs font-semibold text-slate-400 hover:text-white">
+              Inquire Pipeline →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- 8. INTERACTIVE PROJECT ESTIMATOR -->
+  <section class="py-16 px-4 sm:px-8 relative bg-slate-950/80 border-t border-slate-800/80">
+    <div class="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl glass-panel border border-sky-500/30 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-mono">
+            <span>⚡ INSTANT PROJECT CALCULATOR</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Estimate Your Project Cost & Timeline</h3>
+          <p class="text-slate-300 text-xs sm:text-sm">
+            Select your requirements below to calculate an upfront estimate with no hidden fees.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div>
+              <label class="text-[11px] font-mono text-slate-400 block mb-1">Service Type:</label>
+              <select id="est-service-type" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-sky-400">
+                <option value="dashboard" selected>Power BI / Excel Dashboard</option>
+                <option value="cleaning">Data Cleaning & ETL</option>
+                <option value="sql">SQL Query & Database</option>
+                <option value="excel">Excel Automation & VBA</option>
+                <option value="python">Python Data Science / Scraping</option>
+                <option value="fullsuite">Full Analytics Suite</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-mono text-slate-400 block mb-1">Data Scale:</label>
+              <select id="est-data-size" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-sky-400">
+                <option value="simple">Standard (1-5 sheets / tables)</option>
+                <option value="medium" selected>Medium (5-15 sources / 100K rows)</option>
+                <option value="large">Large (Multi-million rows / DB)</option>
+                <option value="enterprise">Enterprise Data Warehouse</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-mono text-slate-400 block mb-1">Turnaround Speed:</label>
+              <select id="est-speed" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-sky-400">
+                <option value="standard" selected>Standard (3 - 6 Days)</option>
+                <option value="rush">Express Rush (24 - 48 Hours)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 p-5 rounded-2xl bg-slate-900/90 border border-slate-800 text-center space-y-3">
+          <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">Estimated Project Budget</span>
+          <div id="est-price-display" class="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono">$240 - $320</div>
+          
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-emerald-400">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span id="est-time-display">4 - 6 Business Days</span>
+          </div>
+
+          <button id="est-apply-btn" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-slate-950 font-bold text-xs tracking-wider shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2">
+            <span>Apply Estimate & Contact Ahmad</span>
+            <i data-lucide="arrow-down" class="w-4 h-4 text-slate-950"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. TECHNICAL SKILLS MATRIX -->
+  <section id="skills" class="py-24 px-4 sm:px-8 relative bg-radial-gradient border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-sky-400 text-xs font-mono">
+          <span>// TECHNICAL TOOLKIT</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Comprehensive <span class="gradient-text-cyan">Skills Matrix</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Proven proficiency across industry-standard business intelligence tools, relational databases, and data science frameworks.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Category 1 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <i data-lucide="sheet" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Microsoft Excel & Power Query</h3>
+              <p class="text-[11px] text-emerald-400 font-mono">MOS Excel Expert Certified</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Dynamic Formulas (XLOOKUP, INDEX/MATCH)</span>
+              <span class="text-emerald-400 font-mono font-bold">98%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emerald-400 rounded-full" style="width: 98%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Power Query ETL & M-Code Transformations</span>
+              <span class="text-emerald-400 font-mono font-bold">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emerald-400 rounded-full" style="width: 95%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Pivot Tables, Slicers & Dynamic Arrays</span>
+              <span class="text-emerald-400 font-mono font-bold">96%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emerald-400 rounded-full" style="width: 96%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">VBA Macros & Process Automation</span>
+              <span class="text-emerald-400 font-mono font-bold">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emerald-400 rounded-full" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">
+              <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Power BI & Business Intelligence</h3>
+              <p class="text-[11px] text-sky-400 font-mono">PL-300 Certified Analyst</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Star & Snowflake Data Modeling</span>
+              <span class="text-sky-400 font-mono font-bold">96%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-sky-400 rounded-full" style="width: 96%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Advanced DAX Calculations (Time-Intelligence)</span>
+              <span class="text-sky-400 font-mono font-bold">92%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-sky-400 rounded-full" style="width: 92%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Interactive Executive Dashboards</span>
+              <span class="text-sky-400 font-mono font-bold">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-sky-400 rounded-full" style="width: 95%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Row-Level Security (RLS) & Governance</span>
+              <span class="text-sky-400 font-mono font-bold">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-sky-400 rounded-full" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
+              <i data-lucide="database" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Databases & SQL Engineering</h3>
+              <p class="text-[11px] text-indigo-400 font-mono">PostgreSQL, MySQL, SQL Server</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Relational Extraction & Normalization</span>
+              <span class="text-indigo-400 font-mono font-bold">94%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-indigo-400 rounded-full" style="width: 94%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Multi-Table JOINs, Subqueries & CTEs</span>
+              <span class="text-indigo-400 font-mono font-bold">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-indigo-400 rounded-full" style="width: 95%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Window Functions (ROW_NUMBER, LEAD/LAG)</span>
+              <span class="text-indigo-400 font-mono font-bold">92%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-indigo-400 rounded-full" style="width: 92%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Indexing & Query Optimization</span>
+              <span class="text-indigo-400 font-mono font-bold">88%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-indigo-400 rounded-full" style="width: 88%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+              <i data-lucide="code" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Python Data Science & Scripting</h3>
+              <p class="text-[11px] text-cyan-400 font-mono">Pandas, NumPy, Scikit-Learn</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Data Wrangling with Pandas & NumPy</span>
+              <span class="text-cyan-400 font-mono font-bold">92%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-cyan-400 rounded-full" style="width: 92%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Exploratory Data Analysis (EDA)</span>
+              <span class="text-cyan-400 font-mono font-bold">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-cyan-400 rounded-full" style="width: 90%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Web Scraping (Selenium & BeautifulSoup)</span>
+              <span class="text-cyan-400 font-mono font-bold">88%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-cyan-400 rounded-full" style="width: 88%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Visualizations (Matplotlib & Seaborn)</span>
+              <span class="text-cyan-400 font-mono font-bold">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-cyan-400 rounded-full" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Analytics Core & Methodologies</h3>
+              <p class="text-[11px] text-amber-400 font-mono">Business Decision Models</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">RFM Customer Segmentation</span>
+              <span class="text-amber-400 font-mono font-bold">94%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-amber-400 rounded-full" style="width: 94%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Outlier & Anomaly Detection</span>
+              <span class="text-amber-400 font-mono font-bold">96%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-amber-400 rounded-full" style="width: 96%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Time-Series Trend & Variance Analysis</span>
+              <span class="text-amber-400 font-mono font-bold">91%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-amber-400 rounded-full" style="width: 91%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Data Dictionary & Lineage Documentation</span>
+              <span class="text-amber-400 font-mono font-bold">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-amber-400 rounded-full" style="width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 6 -->
+        <div class="p-6 rounded-2xl glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Ecosystem & Development Tools</h3>
+              <p class="text-[11px] text-purple-400 font-mono">IDEs & Data Platforms</p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">VS Code & Jupyter Notebooks</span>
+              <span class="text-purple-400 font-mono font-bold">95%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-purple-400 rounded-full" style="width: 95%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Git & GitHub Version Control</span>
+              <span class="text-purple-400 font-mono font-bold">90%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-purple-400 rounded-full" style="width: 90%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">SSMS & DBeaver Database GUI</span>
+              <span class="text-purple-400 font-mono font-bold">94%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-purple-400 rounded-full" style="width: 94%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Tableau & Streamlit UI Deployments</span>
+              <span class="text-purple-400 font-mono font-bold">88%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-purple-400 rounded-full" style="width: 88%;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. CERTIFICATIONS & ACADEMIC BACKGROUND -->
+  <section id="certifications" class="py-24 px-4 sm:px-8 relative bg-grid-pattern border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-sky-400 text-xs font-mono">
+            <span>// ACCREDITATIONS & CREDENTIALS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Certifications & <span class="gradient-text-cyan">Education Timeline</span>
+          </h2>
+          <p class="text-slate-400 text-sm max-w-xl">
+            Certified across leading cloud, business intelligence, and database vendor ecosystems. Click any certificate to inspect credential ID.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800">
+          <button class="cert-filter-btn filter-btn active px-3.5 py-1.5 rounded-xl text-xs" data-category="all">All</button>
+          <button class="cert-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-category="microsoft">Microsoft</button>
+          <button class="cert-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-category="google-aws">Google & AWS</button>
+          <button class="cert-filter-btn filter-btn px-3.5 py-1.5 rounded-xl text-xs text-slate-400 hover:text-white" data-category="datascience">DataCamp & SQL</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Cert 1 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-sky-500/20" data-category="microsoft" data-credential="MS-PL300-98412" data-skills="Power BI, DAX, Star Schema, Power Query, RLS">
+          <div class="flex items-center justify-between text-xs text-sky-400 font-mono mb-2">
+            <span class="cert-issuer">Microsoft</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Power BI Data Analyst Associate (PL-300)</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Industry standard for enterprise Power BI dashboarding & DAX modeling.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-sky-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-emerald-500/20" data-category="microsoft" data-credential="MS-MOS-EXPERT-2025" data-skills="Advanced Formulas, Dynamic Arrays, Pivot Tables, Macros">
+          <div class="flex items-center justify-between text-xs text-emerald-400 font-mono mb-2">
+            <span class="cert-issuer">Microsoft</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Microsoft Office Specialist: Excel Expert</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Official Microsoft certification for advanced financial & data modeling.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-emerald-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-sky-500/20" data-category="microsoft" data-credential="MS-DP600-55102" data-skills="Microsoft Fabric, PySpark, SQL Endpoints, Lakehouse">
+          <div class="flex items-center justify-between text-xs text-sky-400 font-mono mb-2">
+            <span class="cert-issuer">Microsoft</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Fabric Analytics Engineer Associate (DP-600)</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Advanced analytics engineering using Fabric Lakehouses and SQL endpoints.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-sky-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-cyan-500/20" data-category="google-aws" data-credential="GOOGLE-DA-88219" data-skills="SQL, R, Tableau, Spreadsheets, Data Ethics">
+          <div class="flex items-center justify-between text-xs text-cyan-400 font-mono mb-2">
+            <span class="cert-issuer">Google</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Google Data Analytics Professional</h4>
+          <p class="text-[11px] text-slate-400 mt-1">End-to-end data processing, data ethics, SQL querying, and visualizations.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-cyan-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 5 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-cyan-500/20" data-category="google-aws" data-credential="GOOGLE-ADA-77103" data-skills="Python, Regression Models, Machine Learning, Statistics">
+          <div class="flex items-center justify-between text-xs text-cyan-400 font-mono mb-2">
+            <span class="cert-issuer">Google</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Google Advanced Data Analytics</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Advanced Python programming, statistical modeling, and ML pipelines.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-cyan-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 6 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-amber-500/20" data-category="google-aws" data-credential="AWS-DEA-C01-3391" data-skills="AWS Glue, Redshift, S3 Data Lake, Athena">
+          <div class="flex items-center justify-between text-xs text-amber-400 font-mono mb-2">
+            <span class="cert-issuer">Amazon Web Services</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">AWS Certified Data Engineer (DEA-C01)</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Designing cloud ETL pipelines, Redshift data warehouses, and data lakes.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-amber-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 7 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-indigo-500/20" data-category="datascience" data-credential="DC-PRO-DA-1093" data-skills="PostgreSQL, Python EDA, Statistical Tests, Business Reporting">
+          <div class="flex items-center justify-between text-xs text-indigo-400 font-mono mb-2">
+            <span class="cert-issuer">DataCamp</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">DataCamp Professional Data Analyst</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Live coding verified in complex SQL queries and Python statistical analytics.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-indigo-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Cert 8 -->
+        <div class="cert-card p-5 rounded-2xl glass-panel glass-panel-hover cursor-pointer border border-rose-500/20" data-category="datascience" data-credential="HBSO-BA-2294" data-skills="Business Analytics, Quantitative Decision Making, Regression">
+          <div class="flex items-center justify-between text-xs text-rose-400 font-mono mb-2">
+            <span class="cert-issuer">Harvard Online (HBSO / edX)</span>
+            <span class="text-emerald-400">● Verified</span>
+          </div>
+          <h4 class="font-bold text-white text-sm">Business Analytics & Data Science</h4>
+          <p class="text-[11px] text-slate-400 mt-1">Executive-level quantitative decision-making, hypothesis testing, and forecasting.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-rose-400 flex items-center justify-between">
+            <span>View Credential</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Education Timeline -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-panel border border-slate-800 space-y-6">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="graduation-cap" class="w-5 h-5 text-sky-400"></i>
+          <span>Academic Background & Continuous Education</span>
+        </h3>
+
+        <div class="relative border-l border-slate-800 ml-4 space-y-8 pl-6">
+          <div class="relative group">
+            <span class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-sky-500 border-4 border-[#070a12] group-hover:scale-125 transition-transform"></span>
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h4 class="text-base font-bold text-white">Bachelor of Science in Computer Science (BS CS)</h4>
+              <span class="text-xs font-mono text-sky-400 px-2.5 py-0.5 rounded bg-sky-950/60 border border-sky-500/20">2026 - 2030 (In Progress)</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-300 mt-0.5">University of Central Punjab (UCP)</p>
+            <p class="text-xs text-slate-400 mt-1">Core Studies: Software Engineering, Data Structures, Relational Database Systems & Advanced Algorithms.</p>
+          </div>
+
+          <div class="relative group">
+            <span class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-4 border-[#070a12] group-hover:scale-125 transition-transform"></span>
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h4 class="text-base font-bold text-white">Intermediate in Computer Science (ICS)</h4>
+              <span class="text-xs font-mono text-emerald-400 px-2.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/20">2024 - 2026</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-300 mt-0.5">College Level</p>
+            <p class="text-xs text-slate-400 mt-1">Majors: Mathematics, Physics, and Computer Science.</p>
+          </div>
+
+          <div class="relative group">
+            <span class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-500 border-4 border-[#070a12] group-hover:scale-125 transition-transform"></span>
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h4 class="text-base font-bold text-white">Matriculation (Science Stream)</h4>
+              <span class="text-xs font-mono text-slate-400 px-2.5 py-0.5 rounded bg-slate-900 border border-slate-700">Completed 2024</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-300 mt-0.5">High School Science Stream</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- 11. CLIENT REVIEWS & SOCIAL PROOF -->
+  <section id="reviews" class="py-24 px-4 sm:px-8 relative bg-radial-gradient border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-mono">
+          <span>// VERIFIED SOCIAL PROOF</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Client Feedback & <span class="gradient-text-amber">Platform Ratings</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          100% satisfaction across global client engagements on Fiverr, Upwork, and direct freelance contracts.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+        <div class="px-5 py-3 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold font-mono">Up</div>
+          <div>
+            <div class="text-xs font-bold text-white">Upwork Verified</div>
+            <div class="text-[11px] text-emerald-400 font-mono">100% Job Success Rate</div>
+          </div>
+        </div>
+
+        <div class="px-5 py-3 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center font-bold font-mono">Fi</div>
+          <div>
+            <div class="text-xs font-bold text-white">Fiverr Top Excel Pro</div>
+            <div class="text-[11px] text-amber-400 font-mono">5.0 ★ Rating (50+ Reviews)</div>
+          </div>
+        </div>
+
+        <div class="px-5 py-3 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold font-mono">Fr</div>
+          <div>
+            <div class="text-xs font-bold text-white">Freelancer Elite</div>
+            <div class="text-[11px] text-sky-400 font-mono">100% On-Time Delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide flex flex-col md:flex-row items-center gap-6 p-6 sm:p-8 rounded-3xl glass-panel border border-sky-500/30 shadow-2xl">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center font-extrabold text-white text-2xl shadow-lg shrink-0">
+            MR
+          </div>
+          <div class="space-y-3 flex-1 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-1 text-amber-400 text-sm">
+              ★★★★★ <span class="text-xs text-slate-400 font-mono ml-2">5.0 Star Verified Upwork Client</span>
+            </div>
+            <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed">
+              "Ahmad completely revamped our weekly attendance and payroll audit process. We were drowning in 150+ messy contractor invoices every Monday. His automated Excel workbook and Power Query workflow cut our processing time from 8 hours to just 20 minutes with zero errors. Absolute genius!"
+            </p>
+            <div>
+              <h4 class="font-bold text-white text-sm">Marcus Rodriguez</h4>
+              <p class="text-xs text-sky-400 font-mono">Operations Director, Staffing Logistics (USA)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide hidden flex-col md:flex-row items-center gap-6 p-6 sm:p-8 rounded-3xl glass-panel border border-emerald-500/30 shadow-2xl">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center font-extrabold text-white text-2xl shadow-lg shrink-0">
+            SL
+          </div>
+          <div class="space-y-3 flex-1 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-1 text-amber-400 text-sm">
+              ★★★★★ <span class="text-xs text-slate-400 font-mono ml-2">5.0 Star Fiverr Pro Order</span>
+            </div>
+            <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed">
+              "The Power BI dashboard Ahmad built for our executive board was phenomenal. The DAX measures for YoY margin comparisons gave our investors the exact transparency they were demanding. Delivered 2 days ahead of schedule. Highly recommended!"
+            </p>
+            <div>
+              <h4 class="font-bold text-white text-sm">Sarah Lindqvist</h4>
+              <p class="text-xs text-emerald-400 font-mono">Head of Growth, Nordic E-Commerce Hub (Sweden)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide hidden flex-col md:flex-row items-center gap-6 p-6 sm:p-8 rounded-3xl glass-panel border border-indigo-500/30 shadow-2xl">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center font-extrabold text-white text-2xl shadow-lg shrink-0">
+            DK
+          </div>
+          <div class="space-y-3 flex-1 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-1 text-amber-400 text-sm">
+              ★★★★★ <span class="text-xs text-slate-400 font-mono ml-2">5.0 Star Verified Direct Contract</span>
+            </div>
+            <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed">
+              "Ahmad optimized our sluggish PostgreSQL reporting queries that were timing out under 500,000 rows. He rebuilt the query logic with window functions and CTEs, cutting execution time from 3.4 seconds to under 50ms. Incredible depth of database knowledge."
+            </p>
+            <div>
+              <h4 class="font-bold text-white text-sm">David Kowalski</h4>
+              <p class="text-xs text-indigo-400 font-mono">Lead Solutions Architect (UK)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-4 mt-6">
+          <button id="testi-prev" aria-label="Previous Review" class="p-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-sky-400">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          
+          <div class="flex items-center gap-2">
+            <span class="testi-dot w-8 h-2 rounded-full bg-sky-400 cursor-pointer transition-all" data-index="0"></span>
+            <span class="testi-dot w-3 h-2 rounded-full bg-slate-700 cursor-pointer transition-all" data-index="1"></span>
+            <span class="testi-dot w-3 h-2 rounded-full bg-slate-700 cursor-pointer transition-all" data-index="2"></span>
+          </div>
+
+          <button id="testi-next" aria-label="Next Review" class="p-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-sky-400">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. CONTACT & CONVERSION SECTION -->
+  <section id="contact" class="py-24 px-4 sm:px-8 relative bg-grid-pattern border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+          <span>// LET'S COLLABORATE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Ready to Turn Data into <span class="gradient-text-cyan">Strategic Growth?</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Get in touch today for dashboard design, spreadsheet automation, database querying, or full-time analytics roles.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-6 sm:p-8 rounded-3xl glass-panel border border-sky-500/30 space-y-6">
+            <h3 class="text-xl font-bold text-white">Direct Channels</h3>
+            
+            <div class="space-y-4 text-xs sm:text-sm">
+              <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-0.5">
+                  <span class="text-[11px] text-slate-400 font-mono">Email Inquiries:</span>
+                  <a href="mailto:amddsanalyst@gmail.com" class="block font-bold text-white hover:text-sky-400 transition-colors">amddsanalyst@gmail.com</a>
+                  <button onclick="navigator.clipboard.writeText('amddsanalyst@gmail.com'); showToast('Email copied to clipboard! 📋');" class="text-[11px] text-sky-400 hover:underline">Copy Email</button>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-0.5">
+                  <span class="text-[11px] text-slate-400 font-mono">Phone / WhatsApp:</span>
+                  <a href="https://wa.me/923056813372" target="_blank" class="block font-bold text-white hover:text-emerald-400 transition-colors">+92 305 6813372</a>
+                  <span class="text-[11px] text-emerald-400 font-mono">Direct WhatsApp Chat Available</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-0.5">
+                  <span class="text-[11px] text-slate-400 font-mono">LinkedIn Profile:</span>
+                  <a href="https://www.linkedin.com/in/ahmad-dsanalyst" target="_blank" class="block font-bold text-white hover:text-blue-400 transition-colors">linkedin.com/in/ahmad-dsanalyst</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-0.5">
+                  <span class="text-[11px] text-slate-400 font-mono">Location & Base:</span>
+                  <span class="block font-bold text-white">Multan, Punjab, Pakistan</span>
+                  <span class="text-[11px] text-slate-400 font-mono">Serving Clients Worldwide</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
+              <span class="text-xs text-slate-200">Guaranteed response within <strong>4 hours</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form id="portfolio-contact-form" class="p-6 sm:p-8 rounded-3xl glass-panel border border-sky-500/30 shadow-2xl space-y-4">
+            <h3 class="text-xl font-bold text-white mb-2">Send a Project Inquiry</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-name" class="block text-xs font-mono text-slate-300 mb-1">Your Full Name *</label>
+                <input type="text" id="contact-name" required placeholder="e.g. Marcus Vance" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-sky-400">
+              </div>
+
+              <div>
+                <label for="contact-email" class="block text-xs font-mono text-slate-300 mb-1">Your Business Email *</label>
+                <input type="email" id="contact-email" required placeholder="e.g. marcus@company.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-sky-400">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-service" class="block text-xs font-mono text-slate-300 mb-1">Inquiry / Service Category *</label>
+                <select id="contact-service" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-sky-400">
+                  <option value="dashboard">Interactive Dashboard Creation (Power BI / Excel)</option>
+                  <option value="cleaning">Data Cleaning, Deduplication & ETL</option>
+                  <option value="sql">SQL Database Querying & Tuning</option>
+                  <option value="excel">Advanced Excel Modeling & VBA Macros</option>
+                  <option value="python">Python Data Science & Scraping</option>
+                  <option value="freelance">Freelance Contract / Long-term Hire</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contact-budget" class="block text-xs font-mono text-slate-300 mb-1">Project Budget Range (USD)</label>
+                <select id="contact-budget" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-sky-400">
+                  <option value="100-300">$100 - $300 (Standard Task / Quick Dashboard)</option>
+                  <option value="300-750" selected>$300 - $750 (Multi-table Model / Full ETL)</option>
+                  <option value="750-1500">$750 - $1,500 (Enterprise BI & Data Warehouse)</option>
+                  <option value="monthly">Monthly Retainer / Full Time Hire</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-xs font-mono text-slate-300 mb-1">Project Scope & Dataset Details *</label>
+              <textarea id="contact-message" rows="4" required placeholder="Describe your data challenge, data sources (Excel, SQL, CSV), and deliverables you need..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-sky-400"></textarea>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-600 hover:from-sky-400 hover:to-cyan-400 text-slate-950 font-extrabold text-sm tracking-wide shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 transition-all flex items-center justify-center gap-2">
+              <span>Send Project Inquiry</span>
+              <i data-lucide="send" class="w-4 h-4 text-slate-950"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 13. FOOTER -->
+  <footer class="border-t border-slate-800 bg-[#04060c] py-12 px-4 sm:px-8 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-mono font-bold flex items-center justify-center">
+          AD
+        </div>
+        <div>
+          <span class="font-bold text-slate-200">Ahmad Muhammad Dawood</span>
+          <p class="text-[11px] text-slate-500">© 2026 Ahmad Dawood. All rights reserved.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-mono text-[11px]">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Local Time (Multan, PK): <strong id="live-pakistan-time" class="text-sky-400">--:--:--</strong></span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="mailto:amddsanalyst@gmail.com" class="hover:text-sky-400">Email</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/ahmad-dsanalyst" target="_blank" class="hover:text-sky-400">LinkedIn</a>
+        <span>•</span>
+        <a href="https://wa.me/923056813372" target="_blank" class="hover:text-sky-400">WhatsApp</a>
+        <span>•</span>
+        <a href="#hero" class="hover:text-sky-400 flex items-center gap-1">
+          <span>Back to Top</span>
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <!-- 1. Full Dashboard Modal -->
+  <div id="dashboard-modal" class="modal fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="modal-content relative w-full max-w-5xl bg-slate-950 rounded-3xl border border-sky-500/40 shadow-2xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4">
+        <div>
+          <span id="modal-dash-badge" class="px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-400 font-mono text-xs border border-sky-500/30">Live Model View</span>
+          <h3 id="modal-dash-title" class="text-xl sm:text-2xl font-extrabold text-white mt-1">Full Interactive Dashboard View</h3>
+          <p id="modal-dash-desc" class="text-xs sm:text-sm text-slate-400 mt-1">Multi-source consolidated report with real-time DAX metrics.</p>
+        </div>
+        <button id="dashboard-modal-close" aria-label="Close modal" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-200">Reconciled Transaction Records & KPIs</span>
+          <button onclick="showToast('Sample dataset export (.xlsx) downloaded successfully! 📊')" class="px-3 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-1.5 hover:bg-emerald-500/30">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Export Cleaned Excel (.xlsx)</span>
+          </button>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 overflow-x-auto">
+          <table class="w-full text-left data-table">
+            <thead>
+              <tr>
+                <th>Record ID</th>
+                <th>Business Vertical</th>
+                <th>Region</th>
+                <th>Revenue Metric</th>
+                <th>Integrity Status</th>
+                <th>Reconciliation</th>
+              </tr>
+            </thead>
+            <tbody id="modal-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-4 border-t border-slate-800">
+        <a href="#contact" onclick="document.getElementById('dashboard-modal').classList.remove('active')" class="px-6 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs tracking-wider transition-all">
+          Request Custom Version for Your Business →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Case Study Modal -->
+  <div id="case-study-modal" class="modal fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="modal-content relative w-full max-w-4xl bg-slate-950 rounded-3xl border border-sky-500/40 shadow-2xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4">
+        <div>
+          <span id="cs-modal-client" class="text-xs font-mono text-sky-400 uppercase tracking-wider">Client Engagement</span>
+          <h3 id="cs-modal-title" class="text-xl sm:text-2xl font-extrabold text-white mt-1">Case Study</h3>
+          <div class="flex items-center gap-3 text-xs font-mono text-slate-400 mt-1">
+            <span id="cs-modal-tech" class="text-slate-300">Tech Stack</span>
+            <span>•</span>
+            <span id="cs-modal-duration" class="text-amber-400">Duration</span>
+          </div>
+        </div>
+        <button id="case-study-modal-close" aria-label="Close modal" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase">Quantified Results & Achievements:</h4>
+        <div id="cs-modal-metrics" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <h4 class="text-xs font-bold font-mono text-rose-400 uppercase flex items-center gap-1.5">
+            <span>⚠️ The Business Problem</span>
+          </h4>
+          <p id="cs-modal-problem" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <h4 class="text-xs font-bold font-mono text-emerald-400 uppercase flex items-center gap-1.5">
+            <span>✓ The Analytical Solution</span>
+          </h4>
+          <p id="cs-modal-solution" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1.5 font-mono text-xs">
+        <span class="text-slate-400">Data Architecture Pipeline:</span>
+        <p id="cs-modal-arch" class="text-sky-300 text-[11px]"></p>
+      </div>
+
+      <div class="flex justify-end pt-4 border-t border-slate-800">
+        <a href="#contact" onclick="document.getElementById('case-study-modal').classList.remove('active')" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 text-slate-950 font-bold text-xs tracking-wider transition-all">
+          Hire Ahmad for Similar Project →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Cert Modal -->
+  <div id="cert-modal" class="modal fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="modal-content relative w-full max-w-md bg-slate-950 rounded-3xl border border-sky-500/40 shadow-2xl p-6 sm:p-8 space-y-5 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-sky-500/20 border border-sky-500/30 text-sky-400 flex items-center justify-center mx-auto text-2xl font-bold">
+        <i data-lucide="award" class="w-8 h-8"></i>
+      </div>
+
+      <div class="space-y-1">
+        <span id="cert-modal-issuer" class="text-xs font-mono text-sky-400 uppercase tracking-wider">Issuer</span>
+        <h3 id="cert-modal-title" class="text-lg font-bold text-white">Certificate Name</h3>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left space-y-2 text-xs">
+        <div class="flex items-center justify-between">
+          <span class="text-slate-400 font-mono">Credential ID:</span>
+          <span id="cert-modal-id" class="font-mono text-sky-400 font-bold"></span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-400 font-mono">Verification:</span>
+          <span class="text-emerald-400 font-bold">● Authenticated</span>
+        </div>
+        <div class="pt-2 border-t border-slate-800">
+          <span class="text-slate-400 font-mono block mb-1">Skills Assessed:</span>
+          <span id="cert-modal-skills" class="text-slate-200"></span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button id="cert-modal-close" class="flex-1 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-bold text-slate-300">
+          Close
+        </button>
+        <a href="https://www.linkedin.com/in/ahmad-dsanalyst" target="_blank" class="flex-1 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-xs font-bold text-slate-950 flex items-center justify-center gap-1">
+          <span>LinkedIn Proof</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/particles.js"></script>
+  <script src="js/dashboard-demo.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    function switchDashboardTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.dashboard-tab-content').forEach(c => c.classList.add('hidden'));
+
+      const activeBtn = document.getElementById(`tab-${tabId}`);
+      const activeContent = document.getElementById(`content-${tabId}`);
+
+      if (activeBtn) activeBtn.classList.add('active');
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      if (window.DashboardEngine) {
+        DashboardEngine.currentActiveTab = tabId;
+        if (tabId === 'powerbi') DashboardEngine.initPowerBIChart('global');
+        if (tabId === 'excel') DashboardEngine.initExcelChart(0);
+        if (tabId === 'sql') DashboardEngine.initSQLChart();
+        if (tabId === 'python') DashboardEngine.initPythonChart(50);
+      }
+    }
+  </script>
+</body>
+</html>
