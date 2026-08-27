@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Ahmad Dawood - Portfolio Main Interactive Application Engine
  * Handles navigation, animations, filters, modals, cost estimator, forms & toast alerts
  */
@@ -455,19 +455,18 @@ function initTestimonialSlider() {
   }, 7000);
 }
 
-// 8. Contact Form Handling & Toasts
+// 8. Contact Form Handling & Toasts (Web3Forms API Integration)
 function initContactForm() {
   const form = document.getElementById('portfolio-contact-form');
   const submitBtn = document.getElementById('contact-submit-btn');
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
-    const service = document.getElementById('contact-service').value;
     const message = document.getElementById('contact-message').value.trim();
 
     if (!name || !email || !message) {
@@ -485,26 +484,47 @@ function initContactForm() {
       `;
     }
 
-    setTimeout(() => {
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>Inquiry Sent Successfully!</span> <span>✓</span>`;
+          submitBtn.classList.remove('bg-sky-500', 'hover:bg-sky-400');
+          submitBtn.classList.add('bg-emerald-600', 'text-white');
+        }
+
+        showToast(`Thank you, ${name}! Your inquiry has been delivered directly to Ahmad. Reply guaranteed within 4 hours.`, 'success');
+        form.reset();
+
+        setTimeout(() => {
+          if (submitBtn) {
+            submitBtn.innerHTML = `<span>Send Project Inquiry</span> <i data-lucide="send" class="w-4 h-4 inline"></i>`;
+            submitBtn.classList.add('bg-sky-500', 'hover:bg-sky-400');
+            submitBtn.classList.remove('bg-emerald-600', 'text-white');
+            if (window.lucide) window.lucide.createIcons();
+          }
+        }, 5000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Web3Forms Error:', err);
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>Inquiry Sent Successfully!</span> <span>✓</span>`;
-        submitBtn.classList.remove('bg-sky-500', 'hover:bg-sky-400');
-        submitBtn.classList.add('bg-emerald-600', 'text-white');
+        submitBtn.innerHTML = `<span>Send Project Inquiry</span> <i data-lucide="send" class="w-4 h-4 inline"></i>`;
+        if (window.lucide) window.lucide.createIcons();
       }
-
-      showToast(`Thank you, ${name}! Your inquiry has been received. Ahmad will reply within 4 hours.`, 'success');
-      form.reset();
-
-      setTimeout(() => {
-        if (submitBtn) {
-          submitBtn.innerHTML = `<span>Send Project Inquiry</span> <i data-lucide="send" class="w-4 h-4 inline"></i>`;
-          submitBtn.classList.add('bg-sky-500', 'hover:bg-sky-400');
-          submitBtn.classList.remove('bg-emerald-600');
-          if (window.lucide) window.lucide.createIcons();
-        }
-      }, 5000);
-    }, 1200);
+      showToast('There was an issue sending your message. Please reach out directly via amddsanalyst@gmail.com or WhatsApp.', 'error');
+    }
   });
 }
 
